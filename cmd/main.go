@@ -7,6 +7,7 @@ import (
 	"syscall"
 
 	app "github.com/KudryavtsevIvan/city_information_service"
+	"github.com/KudryavtsevIvan/city_information_service/internal/app"
 	"github.com/KudryavtsevIvan/city_information_service/internal/handler"
 	"github.com/KudryavtsevIvan/city_information_service/internal/repository"
 	"github.com/KudryavtsevIvan/city_information_service/internal/service"
