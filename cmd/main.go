@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	app "github.com/KudryavtsevIvan/city_information_service"
-	"github.com/KudryavtsevIvan/city_information_service/internal/appp"
+	cities "github.com/KudryavtsevIvan/city_information_service"
+	"github.com/KudryavtsevIvan/city_information_service/internal/app"
 	"github.com/KudryavtsevIvan/city_information_service/internal/handler"
 	"github.com/KudryavtsevIvan/city_information_service/internal/repository"
 	"github.com/KudryavtsevIvan/city_information_service/internal/service"
@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	app.InitLogging()
+	cities.InitLogging()
 
 	if err := initConfig(); err != nil {
 		log.Err(err).Msg("Configuration file not loaded")
