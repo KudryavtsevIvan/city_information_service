@@ -33,7 +33,7 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	log.Info().Msg("Starting server...")
-	server := new(app.Server)
+	server := new(cities.Server)
 	go func() {
 		if err := server.Run(viper.GetString("server.port"), handlers.InitRoutes()); err != nil {
 			log.Err(err).Msg("Server is not running")
