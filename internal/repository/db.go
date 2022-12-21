@@ -2,6 +2,7 @@ package repository
 
 import (
 	"encoding/csv"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -32,6 +33,11 @@ type DataBase struct {
 func NewDataBase(filePath string) (*DataBase, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
+		_, err := os.Create("cities.csv")
+		if err != nil {
+			fmt.Println("File not created")
+			return nil, err
+		}
 		return nil, err
 	}
 	defer file.Close()
