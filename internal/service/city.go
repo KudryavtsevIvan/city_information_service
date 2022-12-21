@@ -1,7 +1,7 @@
 package service
 
 import (
-	app "github.com/KudryavtsevIvan/city_information_service"
+	cities "github.com/KudryavtsevIvan/city_information_service"
 	"github.com/KudryavtsevIvan/city_information_service/internal/repository"
 )
 
@@ -14,7 +14,7 @@ func NewCityService(repo repository.CityList) *CityService {
 }
 
 // Create sends information to the repository and returns a response
-func (s *CityService) Create(city app.CityRequest) (string, error) {
+func (s *CityService) Create(city cities.CityRequest) (string, error) {
 	return s.repo.Create(city)
 }
 
@@ -49,6 +49,6 @@ func (s *CityService) GetFromFoundation(start, end int) ([]string, error) {
 }
 
 // GetFull sends information to the repository and returns a response
-func (s *CityService) GetFull(id int) (*app.City, error) {
+func (s *CityService) GetFull(id int) (*cities.City, error) {
 	return s.repo.GetFull(id)
 }
