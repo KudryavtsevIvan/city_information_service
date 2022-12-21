@@ -1,6 +1,6 @@
 package repository
 
-import cities "github.com/KudryavtsevIvan/city_information_service"
+import cities "github.com/KudryavtsevIvan/city_information_service/internal/app"
 
 type CityList interface {
 	Create(city cities.CityRequest) (string, error)
