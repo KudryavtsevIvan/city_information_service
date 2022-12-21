@@ -1,4 +1,4 @@
-package cities
+package app
 
 type City struct {
 	Id         int    `json:"id"`
