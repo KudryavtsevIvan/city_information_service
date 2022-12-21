@@ -9,7 +9,7 @@ import (
 	"unicode"
 
 	"github.com/go-chi/chi/v5"
-	cities "github.com/KudryavtsevIvan/city_information_service"
+	cities "github.com/KudryavtsevIvan/city_information_service/internal/app"
 	"github.com/rs/zerolog/log"
 )
 
