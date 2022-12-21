@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-	cities.InitLogging()
+	app.InitLogging()
 
 	if err := initConfig(); err != nil {
 		log.Err(err).Msg("Configuration file not loaded")
@@ -33,7 +33,7 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	log.Info().Msg("Starting server...")
-	server := new(cities.app)
+	server := new(app.Server)
 	go func() {
 		if err := server.Run(viper.GetString("server.port"), handlers.InitRoutes()); err != nil {
 			log.Err(err).Msg("Server is not running")
