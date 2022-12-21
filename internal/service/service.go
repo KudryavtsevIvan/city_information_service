@@ -1,7 +1,7 @@
 package service
 
 import (
-	cities "github.com/KudryavtsevIvan/city_information_service"
+	cities "github.com/KudryavtsevIvan/city_information_service/internal/app"
 	"github.com/KudryavtsevIvan/city_information_service/internal/repository"
 )
 
