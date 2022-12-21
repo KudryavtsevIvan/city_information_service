@@ -25,6 +25,7 @@ func main() {
 	db, err := repository.NewDataBase(viper.GetString("csv.path"))
 	if err != nil {
 		log.Error().Msg(err.Error())
+		
 	}
 	log.Info().Msg("Data loaded")
 
