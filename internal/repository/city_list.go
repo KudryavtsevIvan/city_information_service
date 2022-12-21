@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strconv"
 
-	cities "github.com/KudryavtsevIvan/city_information_service"
+	cities "github.com/KudryavtsevIvan/city_information_service/internal/app"
 )
 
 type CityListDB struct {
