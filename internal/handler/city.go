@@ -9,7 +9,7 @@ import (
 	"unicode"
 
 	"github.com/go-chi/chi/v5"
-	cities "github.com/KudryavtsevIvan/city_information_service/internal/app"
+	model "github.com/KudryavtsevIvan/city_information_service/internal/model"
 	"github.com/rs/zerolog/log"
 )
 
@@ -46,7 +46,7 @@ func (h *Handler) getFull(w http.ResponseWriter, r *http.Request) {
 // If successful, it writes a JSON response containing information
 // about the creation of the city with id, status 201
 func (h *Handler) create(w http.ResponseWriter, r *http.Request) {
-	var city cities.CityRequest
+	var city model.CityRequest
 	content, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		newMessageResponse(w, http.StatusInternalServerError, err.Error())
@@ -115,7 +115,7 @@ func (h *Handler) setPopulation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var population cities.SetPopulationRequest
+	var population model.SetPopulationRequest
 	err = json.Unmarshal(content, &population)
 	if err != nil {
 		newMessageResponse(w, http.StatusBadRequest, err.Error())
@@ -176,7 +176,7 @@ func (h *Handler) getFromPopulation(w http.ResponseWriter, r *http.Request) {
 
 	log.Info().Msg(fmt.Sprintf("GET: Сities by population range %v", string(content)))
 
-	var populationRange cities.RangeRequest
+	var populationRange model.RangeRequest
 	err = json.Unmarshal(content, &populationRange)
 	if err != nil {
 		newMessageResponse(w, http.StatusBadRequest, err.Error())
@@ -203,7 +203,7 @@ func (h *Handler) getFromFoundation(w http.ResponseWriter, r *http.Request) {
 
 	log.Info().Msg(fmt.Sprintf("GET: Сities by foundation range %v", string(content)))
 
-	var foundationRange cities.RangeRequest
+	var foundationRange model.RangeRequest
 	err = json.Unmarshal(content, &foundationRange)
 	if err != nil {
 		newMessageResponse(w, http.StatusBadRequest, err.Error())
