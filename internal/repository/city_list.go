@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strconv"
 
-	cities "github.com/KudryavtsevIvan/city_information_service/internal/app"
+	model "github.com/KudryavtsevIvan/city_information_service/internal/model"
 )
 
 type CityListDB struct {
@@ -17,7 +17,7 @@ func NewCityListDB(db *DataBase) *CityListDB {
 
 // Create places a new city in the database and assigns it an id.
 // Returns the id of the city
-func (r *CityListDB) Create(city cities.CityRequest) (string, error) {
+func (r *CityListDB) Create(city model.CityRequest) (string, error) {
 	newID := r.newId()
 	citySlice := []string{
 		city.Name,
@@ -75,13 +75,13 @@ func (r *CityListDB) GetFromFoundation(start, end int) ([]string, error) {
 
 // GetFull searches for a city by id.
 // If successful, it returns full information about the city
-func (r *CityListDB) GetFull(id int) (*cities.City, error) {
+func (r *CityListDB) GetFull(id int) (*model.City, error) {
 	_, ok := r.db.records[id]
 	if !ok {
 		return nil, errors.New(errNotFoundId)
 	}
 
-	city := new(cities.City)
+	city := new(model.City)
 	city.Id = id
 	city.Name = r.db.records[id][nameIdx]
 	city.Region = r.db.records[id][regionIdx]
