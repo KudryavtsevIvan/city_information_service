@@ -1,4 +1,4 @@
-package cities
+package app
 
 import (
 	"os"
