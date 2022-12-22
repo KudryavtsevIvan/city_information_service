@@ -30,6 +30,7 @@ type DataBase struct {
 // NewDataBase creates a database.
 // Opens a csv file and copies the data into the DataBase structure.
 // If successful, it returns *DataBase
+// If file not found, create new file
 func NewDataBase(filePath string) (*DataBase, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
